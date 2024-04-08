@@ -5,5 +5,5 @@ $_SESSION = array();
 
 session_destroy();
 
-header("Location: Home.php");
+header("Location: ../View/Home.php");
 exit;

@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@500;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&family=Roboto:wght@500;700&display=swap');
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto' , sans-serif;
-}
 *{
     margin: 0;
     padding: 0;
@@ -21,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(Images/Login.jpeg);
+    background: url('../Images/Login.jpeg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -116,12 +107,6 @@ body {
     text-decoration: underline;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto' , sans-serif;
-}
 
 body {
     min-height: 100vh;

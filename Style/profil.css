@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&family=Roboto:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 5px;
+    margin-left: 450px;
+}
+
+.hero2 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 5px;
+    margin-right: 1000px;
+}
+
+.card {
+    width: 400px;
+    background: #24262b;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: #333;
+}
+
+body {
+    background: rgb(68, 68, 68);
+}
+
+.card h1 {
+    font-weight: 500;
+    color: white;
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    width: 200px;
+    background: rgb(68, 68, 68);
+    color: whitesmoke;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+}
+
+.input-file {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.input-file {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.card .input-box input {
+    width: 300PX;
+    height: 10px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 20px 45px 20px 20px;
+    border-color: #000;
+    margin-bottom: 10px;
+}
+
+.card .input-box input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.card .input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.card h2 {
+    color: white;
+}
+
+.user-pic {
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 11%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.link p {
+    width: 100%;
+    color: black;
+}
+
+.link span {
+    color: #24262b;
+
+}
+
+.link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 20px;
+    margin-left: -80px;
+}
+
+.link:hover {
+    font-weight: 600;
+}
+
+
+
+.sub-menu {
+    background: #24262b;
+    padding: 20%;
+    margin: 10px;
+}
+
+.sub-menu p {
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h2 {
+    font-weight: 500;
+    color: white;
+}
+
+.user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: #24262b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a,
+.navbar .search {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.navbar .search {
+    margin-left: auto;
+    margin-left: 40px;
+}
+
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+.Save {
+    position:absolute;
+    top: 74%;
+    left: 62%;
+}
+
+.pill {
+    font-size: 12px;
+    padding: 0.5em 1em;
+    margin: 0.25em;
+    border-radius: 1em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

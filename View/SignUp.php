@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="Login.css">
+    <link rel="stylesheet" type="text/css" href="../Style/Login.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Sign Up</title> 
     <link rel="icon" type="image" href="Images/Logo.jpg">
@@ -12,6 +12,7 @@
             padding-top: 10px;
             text-align: center;
         }
+        
     </style>
 </head>
 <body>
@@ -21,11 +22,12 @@
         <nav class="navbar">
             <a href="Home.php">Acceuil</a>
             <a href="Movies.php">Films</a>
+            <a href="Series.php">Series</a>
         </nav>
     </header>
 
     <div class="wrapper">
-        <form id="signupForm" action="connexion.php"  method="post"> 
+        <form id="signupForm" action="../Controler/connexion.php"  method="post"> 
             <h1>Sign Up</h1> 
 
             <div class="input-box">

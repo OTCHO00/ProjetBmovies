@@ -19,7 +19,7 @@ $(document).ready(function () {
         $('body').append($clone, $background);
 
 
-        var $cross = $('<img src="Images/cross.webp" alt="cross">').css({
+        var $cross = $('<img src="../Images/cross.webp" alt="cross">').css({
             'position': 'fixed',
             'top': '5%',
             'right': '3%',
@@ -29,7 +29,7 @@ $(document).ready(function () {
             'z-index': '9999',
             'cursor': 'pointer'
         });
-        var $like = $('<img src="Images/Like.png" alt="Like">').css({
+        var $like = $('<img src="../Images/Like.png" alt="Like">').css({
             'position': 'fixed',
             'top': '72%',
             'right': '30%',
@@ -38,7 +38,7 @@ $(document).ready(function () {
             'z-index': '9999',
             'cursor': 'pointer'
         });
-        var $dislike = $('<img src="Images/Dislike.png" alt="Dislike">').css({
+        var $dislike = $('<img src="../Images/Dislike.png" alt="Dislike">').css({
             'position': 'fixed',
             'top': '80%',
             'right': '30%',
@@ -47,7 +47,7 @@ $(document).ready(function () {
             'z-index': '9999',
             'cursor': 'pointer'
         });
-        var $downloadLink = $('<img src="Images/Download.png" alt="Download">').css({
+        var $downloadLink = $('<img src="../Images/Download.png" alt="Download">').css({
             'position': 'fixed',
             'top': '88%',
             'right': '30%',
@@ -75,15 +75,13 @@ $(document).ready(function () {
             var $likeImg = $(this);
             var filmId = $likeImg.closest('.movie-link').data('film-id');
             var filmName = $likeImg.closest('.movie-link').data('film-name');
-            console.log("Clic sur l'icône de like pour le film :", filmName); // Correction ici
+            console.log("Clic sur l'icône de like pour le film :", filmName); 
         
-            if ($likeImg.attr('src') === 'Images/LikeB.png') {
-                // L'image est en mode LikeB, donc supprimer le like
-                $likeImg.attr('src', 'Images/Like.png');
+            if ($likeImg.attr('src') === '../Images/LikeB.png') {
+                $likeImg.attr('src', '../Images/Like.png');
                 removeLike(filmId);
             } else {
-                // L'image n'est pas en mode LikeB, donc ajouter le like
-                $likeImg.attr('src', 'Images/LikeB.png');
+                $likeImg.attr('src', '../Images/LikeB.png');
                 addLike(filmId, filmName);
             }
         });
@@ -91,18 +89,16 @@ $(document).ready(function () {
         $dislike.on('click', function () {
             var $dislikeImg = $(this);
             var filmId = $dislikeImg.closest('.movie-link').data('film-id');
-            var filmName = $dislikeImg.closest('.movie-link').data('film-name'); // Ajout de la récupération du nom du film
+            var filmName = $dislikeImg.closest('.movie-link').data('film-name'); 
         
             console.log("Clic sur l'icône de dislike pour le film :", filmName);    
         
-            if ($dislikeImg.attr('src') === 'Images/DislikeB.png') {
-                // L'image est en mode DislikeB, donc supprimer le dislike
-                $dislikeImg.attr('src', 'Images/Dislike.png');
+            if ($dislikeImg.attr('src') === '../Images/DislikeB.png') {
+                $dislikeImg.attr('src', '../Images/Dislike.png');
                 removeDislike(filmId);
             } else {
-                // L'image n'est pas en mode DislikeB, donc ajouter le dislike
-                $dislikeImg.attr('src', 'Images/DislikeB.png');
-                addDislike(filmId, filmName); // Passer le nom du film à la fonction addDislike
+                $dislikeImg.attr('src', '../Images/DislikeB.png');
+                addDislike(filmId, filmName); 
             }
         });
 
@@ -118,12 +114,12 @@ $(document).ready(function () {
         $downloadLink.on('click', function () {
             downloadImage(imageUrl);
         });
-        
+
         function addLike(filmId, filmName) {
             $.ajax({
                 method: 'POST',
                 url: 'update-like.php',
-                data: { filmId: filmId, action: 'like', filmName: filmName }, // Inclure le nom du film
+                data: { filmId: filmId, action: 'like', filmName: filmName }, 
                 success: function (response) {
                     console.log('Like ajouté avec succès !');
                 },
@@ -137,7 +133,7 @@ $(document).ready(function () {
             $.ajax({
                 method: 'POST',
                 url: 'update-like.php',
-                data: { filmId: filmId, action: 'dislike', filmName: filmName }, // Inclure le nom du film
+                data: { filmId: filmId, action: 'dislike', filmName: filmName }, 
                 success: function (response) {
                     console.log('Dislike ajouté avec succès !');
                 },

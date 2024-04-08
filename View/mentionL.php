@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>B. Movies</title>
-    <link rel="stylesheet" type="text/css" href="mention.css">
+    <link rel="stylesheet" type="text/css" href="Style/mention.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" type="image" href="Images/Logo.jpg">
 </head>
@@ -19,6 +19,7 @@ session_start();
         <nav class="navbar">
             <a href="Home.php">Acceuil</a>
             <a href="Movies.php">Films</a>
+            <a href="Series.php">Series</a>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 echo '<a href="MyAccount.php">Mon Compte</a>';

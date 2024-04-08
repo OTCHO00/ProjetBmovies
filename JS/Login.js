@@ -4,7 +4,7 @@ function submitForm(event) {
     var password = document.getElementById('password').value;
 
 
-    fetch('login.php', {
+    fetch('../Controler/login.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -14,7 +14,7 @@ function submitForm(event) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.href = 'Home.php';
+            window.location.href = '../View/Home.php';
         } else {
             alert('Login failed. Please check your credentials or sign up.');
         }

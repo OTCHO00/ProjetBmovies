@@ -7,6 +7,15 @@ CREATE TABLE Films (
    Genre VARCHAR(100)
 );
 
+CREATE TABLE Series (
+   IdSerie INT AUTO_INCREMENT PRIMARY KEY,
+   poster VARCHAR(255),
+   NomSerie VARCHAR(255),
+   Année INT,
+   Pays VARCHAR(100),
+   Genre VARCHAR(100)
+);
+
 CREATE TABLE Likes (
    IdLike INT AUTO_INCREMENT PRIMARY KEY,
    Username VARCHAR(50),
@@ -19,7 +28,7 @@ CREATE TABLE Likes (
 
 CREATE TABLE Roles (
    RoleId INT PRIMARY KEY,
-   NomRole VARCHAR(50)
+   NomRole VARCHAR(50)  
 );
 
 CREATE TABLE Utilisateurs (
@@ -29,6 +38,7 @@ CREATE TABLE Utilisateurs (
    AdresseMail VARCHAR(255),
    DateInscription DATE,
    RoleId INT NOT NULL,
+   PhotoProfil VARCHAR(255) default 'Images/X.png',
    FOREIGN KEY (RoleId) REFERENCES Roles(RoleId)
 );
 
@@ -172,10 +182,33 @@ VALUES
    (125, 'Godzilla.jpg', 'Godzilla', 2014, 'USA', 'Science-Fiction'),
    (126, 'Singes.jpg', 'La planete des Singes', 1968, 'USA', 'Science-Fiction');
    
+
+INSERT INTO Series (IdSerie, poster, NomSerie, Année, Pays, Genre)
+VALUES 
+      (1,'TheBoys.jpg','The Boys',2019,'USA','Super Heros'),
+      (2,'BreakingBadd.jpg','Breaking Bad',2019,'USA','Drame'),
+      (3,'GOT.jpg','Game Of Throne',2019,'USA','Fantastique'),
+      (4,'Sopranos.jpg','The Sopranos',2019,'USA','Drame'),
+      (5,'Succession.jpg','Succession',2019,'USA','Drame'),
+      (6,'Chernobyl.jpg','Chernobyl',2019,'USA','Drame');
+
+
+
+
 INSERT INTO Roles (RoleId , NomRole)
 VALUES
       (1 , "Admin"),
       (2 , "Utilisateur");
+
+
+
+DROP TABLE IF EXISTS Films;
+DROP TABLE IF EXISTS Series;
+DROP TABLE IF EXISTS Likes;
+DROP TABLE IF EXISTS Roles;
+DROP TABLE IF EXISTS Utilisateurs;
+DROP TABLE IF EXISTS InfoUtilisateurs;
+
 
 
 
