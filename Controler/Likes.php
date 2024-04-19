@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['loggedin']) && $_S
         $stmt->execute();
         echo 'Like/dislike enregistré avec succès !';
     } catch (PDOException $e) {
-        echo 'Erreur lors de l\'enregistrement du like/dislike : ' . $e->getMessage();
+        echo '' . $e->getMessage();
     }
 
     $pdo = null;

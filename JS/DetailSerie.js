@@ -11,11 +11,11 @@ $(document).ready(function () {
 
     // Gestionnaire d'événements pour le clic sur .movie-link
     $('.movie-link').on('click', function () {
-        var filmId = $(this).data('film-id');
-        var filmName = $(this).data('film-name');
+        var serieId = $(this).data('serie-id');
+        var serieName = $(this).data('serie-name');
 
-        console.log('Film ID:', filmId);
-        console.log('Film Name:', filmName);
+        console.log('Serie ID:', serieId);
+        console.log('Serie Name:', serieName);
 
         var imageUrl = $(this).find('img').attr('src');
 
@@ -96,13 +96,13 @@ $(document).ready(function () {
 
         
         $('.movie-link').on('click', function () {
-            var filmId = $(this).data('film-id');
-            var filmName = $(this).data('film-name');
+            var serieId = $(this).data('film-id');
+            var serieName = $(this).data('film-name');
     
             // Autre code pour l'affichage des éléments
     
             // Récupérer l'état du like/dislike depuis localStorage
-            var likeState = localStorage.getItem(`film_${filmId}_like`);
+            var likeState = localStorage.getItem(`film_${serieId}_like`);
             if (likeState === 'like') {
                 $like.attr('src', '../Images/LikeB.png'); // Mettre à jour l'image de like
             } else if (likeState === 'dislike') {
@@ -120,12 +120,12 @@ $(document).ready(function () {
         
             if (isLiked) {
                 $likeImg.attr('src', '../Images/Like.png');
-                removeLike(filmId);
-                localStorage.removeItem(`film_${filmId}_like`);
+                removeLike(serieId);
+                localStorage.removeItem(`film_${serieId}_like`);
             } else {
                 $likeImg.attr('src', '../Images/LikeB.png');
-                addLike(filmId, filmName, $likeImg);
-                localStorage.setItem(`film_${filmId}_like`, 'like');
+                addLike(serieId, serieName, $likeImg);
+                localStorage.setItem(`film_${serieId}_like`, 'like');
             }
         });
 
@@ -136,12 +136,12 @@ $(document).ready(function () {
         
             if (isDisliked) {
                 $dislikeImg.attr('src', '../Images/Dislike.png');
-                removeDislike(filmId);
-                localStorage.removeItem(`film_${filmId}_like`);
+                removeDislike(serieId);
+                localStorage.removeItem(`film_${serieId}_like`);
             } else {
                 $dislikeImg.attr('src', '../Images/DislikeB.png');
-                addDislike(filmId, filmName);
-                localStorage.setItem(`film_${filmId}_like`, 'dislike');
+                addDislike(serieId, serieName);
+                localStorage.setItem(`film_${serieId}_like`, 'dislike');
             }
         });
 
@@ -151,19 +151,19 @@ $(document).ready(function () {
         // Gestionnaire d'événements pour le clic sur l'icône de téléchargement
 
         // Fonction pour ajouter un like
-        function addLike(filmId, filmName, $likeImg) {
+        function addLike(serieId, serieName, $likeImg) {
     $.ajax({
         method: 'POST',
-        url: '../Controler/update-like.php',
+        url: '../Controler/update-like-serie.php',
         data: {
-            filmId: filmId,
+            serieId: serieId,
             action: 'like',
-            filmName: filmName
+            serieName: serieName
         },
         success: function (response) {
-            console.log('Like ajouté avec succès pour le film : ' + filmName);
+            console.log('Like ajouté avec succès pour le film : ' + serieName);
             $likeImg.addClass('liked');
-            localStorage.setItem(`film_${filmId}_like`, 'like'); // Mettre à jour localStorage
+            localStorage.setItem(`film_${serieId}_like`, 'like'); // Mettre à jour localStorage
         },
         error: function (xhr, status, error) {
             console.error('Erreur lors de l\'ajout du like :', error);
@@ -171,17 +171,17 @@ $(document).ready(function () {
     });
 }
 
-function removeLike(filmId) {
+function removeLike(serieId) {
     $.ajax({
         method: 'POST',
         url: '../Controler/remove-like.php',
         data: {
-            filmId: filmId,
+            serieId: serieId,
             action: 'remove-like'
         },
         success: function (response) {
-            console.log('Like retiré avec succès pour le film ID : ' + filmId);
-            localStorage.removeItem(`film_${filmId}_like`); // Supprimer l'entrée dans localStorage
+            console.log('Like retiré avec succès pour le film ID : ' + serieId);
+            localStorage.removeItem(`film_${serieId}_like`); // Supprimer l'entrée dans localStorage
             // Mettre à jour l'interface utilisateur si nécessaire
         },
         error: function (xhr, status, error) {
@@ -190,17 +190,17 @@ function removeLike(filmId) {
     });
 }
 
-function removeDislike(filmId) {
+function removeDislike(serieId) {
     $.ajax({
         method: 'POST',
         url: '../Controler/remove-dislike.php',
         data: {
-            filmId: filmId,
+            serieId: serieId,
             action: 'remove-dislike'
         },
         success: function (response) {
-            console.log('Dislike retiré avec succès pour le film ID : ' + filmId);
-            localStorage.removeItem(`film_${filmId}_like`); // Supprimer l'entrée dans localStorage
+            console.log('Dislike retiré avec succès pour le film ID : ' + serieId);
+            localStorage.removeItem(`film_${serieId}_like`); // Supprimer l'entrée dans localStorage
             // Mettre à jour l'interface utilisateur si nécessaire
         },
         error: function (xhr, status, error) {
@@ -209,17 +209,17 @@ function removeDislike(filmId) {
     });
 }
 
-function addDislike(filmId, filmName) {
+function addDislike(filmId, serieName) {
     $.ajax({
         method: 'POST',
         url: '../Controler/update-dislike.php',
         data: {
             filmId: filmId,
             action: 'add-dislike',
-            filmName: filmName
+            serieName: serieName
         },
         success: function (response) {
-            console.log('Dislike ajouté avec succès pour le film : ' + filmName);
+            console.log('Dislike ajouté avec succès pour le film : ' + serieName);
             localStorage.setItem(`film_${filmId}_like`, 'dislike'); // Mettre à jour localStorage
             // Mettre à jour l'interface utilisateur si nécessaire
         },

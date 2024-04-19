@@ -29,4 +29,3 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
 }
-

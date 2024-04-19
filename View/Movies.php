@@ -11,7 +11,7 @@ include '../Controler/movie.inc.php';
     <link rel="stylesheet" type="text/css" href="../Style/Films.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="icon" type="image" href="Images/Logo.jpg">
+    <link rel="icon" type="image" href="../Images/Logo.jpg">
 </head>
 
 <body>
@@ -24,7 +24,7 @@ include '../Controler/movie.inc.php';
             <a href="Series.php">Series</a>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-                echo '<img src="' . (isset($user['PhotoProfil']) ? $user['PhotoProfil'] : 'Images/X.png') . '" class="user-pic" onclick="toggleMenu()">';
+                echo '<img src="' . (isset($user['PhotoProfil']) ? $user['PhotoProfil'] : '../Images/X.png') . '" class="user-pic" onclick="toggleMenu()">';
             } else {
                 echo '<a href="SignUp.php">Inscrivez-vous</a>';
             }
@@ -32,7 +32,7 @@ include '../Controler/movie.inc.php';
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
-                        <img src="<?php echo isset($user['PhotoProfil']) ? $user['PhotoProfil'] : 'Images/X.png'; ?>" alt="Profile Picture">
+                        <img src="<?php echo isset($user['PhotoProfil']) ? $user['PhotoProfil'] : '../Images/X.png'; ?>" alt="Profile Picture">
                         <h2><?php echo isset($user['Username']) ? $user['Username'] : ''; ?></h2>
                     </div>
                     <hr>
@@ -41,11 +41,11 @@ include '../Controler/movie.inc.php';
                         <img src="../Images/profile.png">
                         <p> Profile </p>
                     </a>
-                    <a href="#" class="link">
-                        <img src="../Images/setting.png">
-                        <p> Aide & Support </p>
+                    <a href="favorite-movies.php" class="link">
+                        <img src="../Images/fav.png">
+                        <p>Likes</p>
                     </a>
-                    <a href="Logout.php" class="link">
+                    <a href="../Controler/Logout.php" class="link">
                         <img src="../Images/logout.png">
                         <p> Déconnexion </p>
                     </a>
@@ -58,19 +58,20 @@ include '../Controler/movie.inc.php';
     </header>
 
     <div class="buton">
-        <h3>Categories : </h3>
-        <a href="get_movies_by_genre.php?genre=all"><button class="btn">All</button></a>
-        <br>
-        <a href="get_movies_by_genre.php?genre=Action"><button class="btn">Action</button></a>
-        <br>
-        <a href="get_movies_by_genre.php?genre=Drame"><button class="btn">Drame</button></a>
-        <br>
-        <a href="get_movies_by_genre.php?genre=Horreur"><button class="btn">Horreur</button></a>
-        <br>
-        <a href="get_movies_by_genre.php?genre=Science-Fiction"><button class="btn">SF</button></a>
-        <br>
-        <a href="get_movies_by_genre.php?genre=other"><button class="btn">Autres</button></a>
-    </div>
+    <h3>Categories :</h3>
+    <a href="get_movies_by_genre.php?genre=all"><button class="btn"><strong>All</strong></button></a>
+    <br>
+    <a href="get_movies_by_genre.php?genre=Action"><button class="btn"><strong>Action</strong></button></a>
+    <br>
+    <a href="get_movies_by_genre.php?genre=Drame"><button class="btn"><strong>Drame</strong></button></a>
+    <br>
+    <a href="get_movies_by_genre.php?genre=Horreur"><button class="btn"><strong>Horreur</strong></button></a>
+    <br>
+    <a href="get_movies_by_genre.php?genre=Science-Fiction"><button class="btn"><strong>SF</strong></button></a>
+    <br>
+    <a href="get_movies_by_genre.php?genre=other"><button class="btn"><strong>Autres</strong></button></a>
+</div>
+
 
 
     <footer class="footer" id="footer">

@@ -1,5 +1,5 @@
 CREATE TABLE Films (
-   IdFilm INT AUTO_INCREMENT PRIMARY KEY,
+   IdFilm INT PRIMARY KEY,
    poster VARCHAR(255),
    NomFilm VARCHAR(255),
    Année INT,
@@ -8,7 +8,7 @@ CREATE TABLE Films (
 );
 
 CREATE TABLE Series (
-   IdSerie INT AUTO_INCREMENT PRIMARY KEY,
+   IdSerie INT PRIMARY KEY,
    poster VARCHAR(255),
    NomSerie VARCHAR(255),
    Année INT,
@@ -19,16 +19,13 @@ CREATE TABLE Series (
 CREATE TABLE Likes (
    IdLike INT AUTO_INCREMENT PRIMARY KEY,
    Username VARCHAR(50),
-   IdFilm INT,
+   IdFilm INT DEFAULT NULL,
+   IdSerie INT DEFAULT NULL,
    LikeStatus ENUM('like', 'dislike'), 
    FOREIGN KEY (Username) REFERENCES Utilisateurs(Username),
    FOREIGN KEY (IdFilm) REFERENCES Films(IdFilm),
+   FOREIGN KEY (IdSerie) REFERENCES Series(IdSerie),
    UNIQUE KEY unique_like (Username, IdFilm)
-);
-
-CREATE TABLE Roles (
-   RoleId INT PRIMARY KEY,
-   NomRole VARCHAR(50)  
 );
 
 CREATE TABLE Utilisateurs (
@@ -38,19 +35,15 @@ CREATE TABLE Utilisateurs (
    AdresseMail VARCHAR(255),
    DateInscription DATE,
    RoleId INT NOT NULL,
-   PhotoProfil VARCHAR(255) default 'Images/X.png',
+   PhotoProfil VARCHAR(255) default '../Images/X.png',
    FOREIGN KEY (RoleId) REFERENCES Roles(RoleId)
 );
 
-CREATE TABLE InfoUtilisateurs (
-   DateNaissance DATE,
-   Bio VARCHAR(255),
-   Pays VARCHAR(100),
-   NomUtilisateur VARCHAR(100),
-   Phone VARCHAR(20),
-   Username VARCHAR(50),
-   FOREIGN KEY (Username) REFERENCES Utilisateurs(Username)
+CREATE TABLE Roles (
+   RoleId INT PRIMARY KEY,
+   NomRole VARCHAR(50)  
 );
+
 
 
 INSERT INTO Films (IdFilm, poster, NomFilm, Année, Pays, Genre)

@@ -26,7 +26,7 @@
     if ($stmt->rowCount() > 0) {
         echo '<div class="image-row">';
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo '<a class="movie-link" data-film-id="' . $row["IdSerie"] . '" data-film-name="' . $row["NomSerie"] . '"><img src="../Series/' . $row["poster"] . '" alt="' . $row["NomSerie"] . '"></a>';
+            echo '<a class="movie-link" data-serie-id="' . $row["IdSerie"] . '" data-serie-name="' . $row["NomSerie"] . '"><img src="../Series/' . $row["poster"] . '" alt="' . $row["NomSerie"] . '"></a>';
         }
         echo '</div>';
     } else {

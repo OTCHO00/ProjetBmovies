@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../Style/Login.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <title>Sign Up</title> 
-    <link rel="icon" type="image" href="Images/Logo.jpg">
+    <link rel="icon" type="image" href="../Images/Logo.jpg">
     <style>
         .error-message {
             color: red;
