@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     if (isset($_POST['save_bio'])) {
-        include 'db.inc.php';
+        include '../Model/db.inc.php';
         
         $userId = $_SESSION['username'];
 

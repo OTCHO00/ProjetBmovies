@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.inc.php';
+include '../Model/db.inc.php';
 
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {

@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>B. Movies</title>
-    <link rel="stylesheet" type="text/css" href="Style/mention.css">
+    <link rel="stylesheet" type="text/css" href="../Style/mention.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" type="image" href="Images/Logo.jpg">
 </head>

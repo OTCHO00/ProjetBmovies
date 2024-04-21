@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 
-include('db.inc.php');
+include('../Model/db.inc.php');
 
 if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
     $response = ["success" => false, "message" => "All fields are required"];

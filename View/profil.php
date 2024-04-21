@@ -1,4 +1,4 @@
-<?php include 'PhotoProfil.php'; ?>
+<?php include '../Controler/PhotoProfil.php'; ?>
 <?php include 'ChangePassword.php'; ?>
 
 <!DOCTYPE html>

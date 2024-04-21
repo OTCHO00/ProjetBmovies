@@ -1,5 +1,5 @@
 <?php
-include('db.inc.php');
+include('../Model/db.inc.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];

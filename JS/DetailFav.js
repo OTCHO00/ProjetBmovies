@@ -12,11 +12,19 @@ $(document).ready(function () {
     // Gestionnaire d'événements pour le clic sur .movie-link
     $('.movie-link').on('click', function () {
         var filmId = $(this).data('film-id');
-        var filmName = $(this).data('film-name');
-
-        console.log('Film ID:', filmId);
-        console.log('Film Name:', filmName);
-
+            var serieId = $(this).data('serie-id');
+        
+            if (typeof filmId !== 'undefined') {
+                // C'est un film
+                console.log('Film ID:', filmId);
+                console.log('Film Name:', $(this).data('film-name'));
+        
+            } else if (typeof serieId !== 'undefined') {
+                // C'est une série
+                console.log('Serie ID:', serieId);
+                console.log('Serie Name:', $(this).data('serie-name'));
+        
+            }
         var imageUrl = $(this).find('img').attr('src');
 
         var $clone = $(this).find('img').clone().addClass('enlarged-image');
@@ -30,6 +38,17 @@ $(document).ready(function () {
             'right': '3%',
             'transform': 'translate(-50%, -50%)',
             'width': '45px',
+            'height': 'auto',
+            'z-index': '9999',
+            'cursor': 'pointer'
+        });
+
+
+        var $dislike = $('<img src="../Images/Dislike.png" alt="Dislike">').css({
+            'position': 'fixed',
+            'top': '80%',
+            'right': '30%',
+            'width': '70px',
             'height': 'auto',
             'z-index': '9999',
             'cursor': 'pointer'
@@ -48,33 +67,81 @@ $(document).ready(function () {
 
         // Gestionnaire d'événements pour le clic sur l'icône de croix
         $cross.on('click', function () {
+            $dislike.remove(); 
             $clone.remove();
             $background.remove();
             $(this).remove();
             $downloadLink.remove();
-            $like.remove();
-            $dislike.remove();
         });
 
         $('body').append($cross);
+        $('body').append($dislike);
         $('body').append($downloadLink);
 
 
         $clone.on('click', function () {
+            $dislike.remove();  
             $clone.remove();
             $background.remove();
             $cross.remove();
             $downloadLink.remove();
-            $like.remove();
-            $dislike.remove();
         });
 
         $downloadLink.on('click', function () {
             downloadImage(imageUrl);
         });
 
+
+        $dislike.on('click', function () {
+            var $dislikeImg = $(this);
+            var isDisliked = $dislikeImg.attr('src') === '../Images/DislikeB.png';
         
+            var contentId = null;
         
+            if (typeof filmId !== 'undefined') {
+                // C'est un film
+                contentId = filmId;
+            } else if (typeof serieId !== 'undefined') {
+                // C'est une série
+                contentId = serieId;
+            }
+        
+            if (isDisliked) {
+                // L'icône est déjà désactivée, donc il faut réactiver le like
+                $dislikeImg.attr('src', '../Images/Dislike.png');
+            } else {
+                // L'icône est activée, donc il faut retirer le like
+                $dislikeImg.attr('src', '../Images/DislikeB.png');
+                if (contentId !== null) {
+                    removeLike(contentId);
+                }
+            }
+        });
+
+        function removeLike(contentId) {
+            // Déterminez si c'est un film ou une série en fonction de la présence de filmId ou serieId
+            var action = (typeof filmId !== 'undefined') ? 'remove-like-film' : 'remove-like-serie';
+        
+            $.ajax({
+                method: 'POST',
+                url: '../Controler/remove-like.php',
+                data: {
+                    contentId: contentId,
+                    action: action
+                },
+                success: function (response) {
+                    console.log('Like retiré avec succès pour le contenu ID : ' + contentId);
+                    console.log(response); // Vérifiez la réponse du serveur
+                    console.log("Content ID:", contentId);
+                    console.log("Action:", action);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Erreur lors du retrait du like :', error);
+                }
+            });
+        }
+
+
 
     });
 });

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville:wght@700&family=Roboto:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background: rgb(68, 68, 68);
+}
+
+.container {
+margin-bottom: 30%;
+}
+
+.logo img {
+    width: 70px; 
+    height: auto; 
+}
+
+.user-pic {
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 11%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.link p  {
+    width: 100%;
+    color: black;
+}
+
+.link span {
+    color: #24262b;
+}
+.link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding:8px;
+    margin-right: 20px;
+    margin-left: -80px;
+}
+
+.link:hover {
+    font-weight: 600;
+}
+
+
+
+.sub-menu {
+    background: #24262b;
+    padding: 20%;
+    margin: 10px;
+}
+
+.sub-menu p {
+    color: white;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h2 {
+    font-weight: 500;
+    color: white;
+}
+
+.user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: #24262b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a, .navbar .search {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px; 
+}
+
+.navbar .search {
+    margin-left: auto; 
+    margin-left: 40px;  
+}
+
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+

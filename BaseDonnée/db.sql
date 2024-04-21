@@ -39,6 +39,8 @@ CREATE TABLE Utilisateurs (
    FOREIGN KEY (RoleId) REFERENCES Roles(RoleId)
 );
 
+
+
 CREATE TABLE Roles (
    RoleId INT PRIMARY KEY,
    NomRole VARCHAR(50)  
@@ -200,7 +202,6 @@ DROP TABLE IF EXISTS Series;
 DROP TABLE IF EXISTS Likes;
 DROP TABLE IF EXISTS Roles;
 DROP TABLE IF EXISTS Utilisateurs;
-DROP TABLE IF EXISTS InfoUtilisateurs;
 
 
 

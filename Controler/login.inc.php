@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     try {
-        require_once 'db.inc.php';
+        require_once '../Model/db.inc.php';
     } catch (PDOException $e) {
         die ("Query failed : " . $e->getMessage());
     }

@@ -1,6 +1,6 @@
 <?php
-include 'PhotoProfil.php';
-include '../Controler/favorite-movie.inc.php';
+include '../Controler/PhotoProfil.php';
+include '../Model/favorite-movie.inc.php';
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include '../Controler/db.inc.php';
+include '../Model/db.inc.php';
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $username = $_SESSION['username'];
@@ -23,9 +23,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         }
     }
 
-    $query = "SELECT Username, AdresseMail, PhotoProfil FROM Utilisateurs WHERE Username = ?";
+    // Modifier la requête SQL pour inclure RoleId
+    $query = "SELECT Username, AdresseMail, PhotoProfil, RoleId FROM Utilisateurs WHERE Username = ?";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
 }
+?>
