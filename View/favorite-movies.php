@@ -42,7 +42,7 @@ include '../Model/favorite-movie.inc.php';
                         <p> Profile </p>
                     </a>
                     <a href="favorite-movies.php" class="link">
-                        <img src="../Images/setting.png">
+                        <img src="../Images/fav.png">
                         <p>Likes</p>
                     </a>
                     <a href="../Controler/Logout.php" class="link">

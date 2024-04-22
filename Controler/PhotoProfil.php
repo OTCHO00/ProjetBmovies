@@ -19,7 +19,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
             $stmt = $pdo->prepare($query);
             $stmt->execute([$target_file, $username]);
         } else {
-            echo "Erreur lors du téléchargement du fichier.";
+            echo "";
         }
     }
 

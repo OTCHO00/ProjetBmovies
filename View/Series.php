@@ -22,7 +22,7 @@
             echo '<script src="../JS/DetailSerieAdmin.js"></script>';
         } else {
             // Sinon, inclure Detail.js par défaut
-            echo '<script src="../JS/Detail.js"></script>';
+            echo '<script src="../JS/DetailSerie.js"></script>';
         }
     }
     ?>

@@ -1,5 +1,5 @@
 <?php
-include '../Controler/db.inc.php'; 
+include '../Model/db.inc.php'; 
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $username = $_SESSION['username'];

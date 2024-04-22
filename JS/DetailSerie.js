@@ -96,10 +96,11 @@ $(document).ready(function () {
 
         
         $('.movie-link').on('click', function () {
-            var serieId = $(this).data('film-id');
-            var serieName = $(this).data('film-name');
+            var serieId = $(this).data('serie-id');
+            var serieName = $(this).data('serie-name');
     
-            // Autre code pour l'affichage des éléments
+            console.log('Serie ID:', serieId);
+            console.log('Serie Name:', serieName);
     
             // Récupérer l'état du like/dislike depuis localStorage
             var likeState = localStorage.getItem(`film_${serieId}_like`);

@@ -22,7 +22,7 @@ CREATE TABLE Likes (
    IdFilm INT DEFAULT NULL,
    IdSerie INT DEFAULT NULL,
    LikeStatus ENUM('like', 'dislike'), 
-   FOREIGN KEY (Username) REFERENCES Utilisateurs(Username),
+   FOREIGN KEY (Username) REFERENCES Utilisateurs(Username) ON DELETE CASCADE,
    FOREIGN KEY (IdFilm) REFERENCES Films(IdFilm),
    FOREIGN KEY (IdSerie) REFERENCES Series(IdSerie),
    UNIQUE KEY unique_like (Username, IdFilm)
