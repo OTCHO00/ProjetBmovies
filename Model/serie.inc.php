@@ -1,5 +1,5 @@
 <?php
-    $host = 'localhost';
+    $host = 'ec2-3-208-28-102.compute-1.amazonaws.com';
     $dbname = 'b_movies';
     $dbusername = 'root';
     $dbpassword = '';
