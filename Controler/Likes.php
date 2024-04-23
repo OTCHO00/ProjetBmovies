@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['loggedin']) && $_S
     $nomfilm = $_SESSION['nomfilm'];
 
 
-    $host = 'localhost';
+    $host = 'ec2-3-208-28-102.compute-1.amazonaws.com';
     $dbname = 'b_movies';
     $dbusername = 'root';
     $dbpassword = '';
