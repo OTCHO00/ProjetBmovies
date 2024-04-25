@@ -7,7 +7,7 @@ if (isset($_POST['contentId']) && isset($_POST['likeType']) && isset($_POST['use
     $username = $_POST['username'];
 
     // Connexion à la base de données
-    $host = 'localhost';
+    $host = 'ec2-3-208-28-102.compute-1.amazonaws.com';
     $dbname = 'b_movies';
     $dbusername = 'root';
     $dbpassword = '';
